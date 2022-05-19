@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Фокус</title>
+    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+</head>
+
+<body>
+
+    <div id="site">
+
+
+
+        <div class="wrap-header">
+            <header class="header">
+                <div class="header-logo">
+                    <div class="burger">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <img src="./images/logo.png" alt="">
+                </div>
+                <div class="header-menu">
+                    <span><a href="#">Категории</a></span>
+                    <span><a href="#">Спецтема</a></span>
+                    <span><a href="#">РЕЙТИНГИ</a></span>
+                    <span><a href="#">Подписка</a></span>
+                </div>
+                <div class="header-lang">
+                    <span><a href="#">UA</a></span>
+                    <span><a class="active" href="#">RU</a></span>
+                    <img src="./images/search-icon.png" alt="">
+                </div>
+            </header>
+        </div>
+        
+        <script>
+            (function (global) {
+                "use strict";
+                function Clock(el) {
+                    var document = global.document;
+                    this.el = document.getElementById(el);
+                    this.months = ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'];
+                    this.days = ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П*ятниця', 'Субота'];
+                }
+                Clock.prototype.addZero = function (i) {
+                    if (i < 10) {
+                        i = "0" + i;
+                        return i;
+                    }
+                    return i;
+                };
+                Clock.prototype.updateClock = function () {
+                    var now, year, month, dayNo, day, hour, minute, second, result, self;
+                    now = new global.Date();
+                    year = now.getFullYear();
+                    month = now.getMonth();
+                    dayNo = now.getDay();
+                    day = now.getDate();
+                    hour = this.addZero(now.getHours());
+                    minute = this.addZero(now.getMinutes());
+                    second = this.addZero(now.getSeconds());
+                    result = this.days[dayNo] + ", " + day + " " + this.months[month] + " " + year + " " + hour + ":" + minute + ":" + second;
+                    self = this;
+                    self.el.innerHTML = result;
+                    global.setTimeout(function () {
+                        self.updateClock();
+                    }, 1000);
+                };
+                global.Clock = Clock;
+            }(window));
+
+            function addEvent(elm, evType, fn, useCapture) {
+                "use strict";
+                if (elm.addEventListener) {
+                    elm.addEventListener(evType, fn, useCapture);
+                } else if (elm.attachEvent) {
+                    elm.attachEvent('on' + evType, fn);
+                } else {
+                    elm['on' + evType] = fn;
+                }
+            }
+
+            addEvent(window, "load", function () {
+                if (document.getElementById("clock")) {
+                    var clock = new Clock("clock");
+                    clock.updateClock();
+                }
+            });
+        </script>
+        <div id="content">
+            <p id="clock">Javascript Clock</p>
+
+            <div class="main-news">
+                <a href="#">
+                    <div class="block-1">
+                        Леди в законе. Особый статус для жены президетна
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="block-2">
+                        Взрыв на Позняках в Киеве
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="block-3">
+                        Потоп на западной Украине
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="block-4">
+                        Цифровая трансформация бизнеса Украины
+                    </div>
+                </a>
+            </div>
+            <div class="main-news-big">
+                <div class="description-news">
+                    <p class="title-news">политика</p>
+                    <h1>Леди в законе. Зачем Зеленскому понадобился особый статус для жены президента</h1>
+                    <p class="text">Владимир Зеленский загорелся идеей разработки закона о первой леди. Для чего ему это
+                        понадобилось, и какие права и обязанности возлагаются на супругу главы государства в Украине
+                    </p>
+                </div>
+            </div>
+            <div class="block-card-news">
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/i-news-1.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Наказание карантином. Чем грозит Украине вторая волна борьбы с коронавирусом
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>Технологии и наука</span>
+                        <img src="./images/i-news-2.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Заговоренная связь. Все, что известно о 5G и его влиянии на здоровье
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news-back one">
+                    <div class="status">
+                        <span>рейтинг</span>
+                    </div>
+                    <div class="description">
+                        <h1 class="title">
+                            100
+                        </h1>
+                        <p>
+                            Из песни слов не выкинешь. Рейтинг Фокуса:
+                            самые успешные звезды шоу-бизнеса
+                        </p>
+                    </div>
+
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>Политика</span>
+                        <img src="./images/i-news-4.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Дубы и сосны. В соцсетях обсуждают сексистский скандал в "Слуге народа"
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block-card-news">
+                <div class="card-news-back two">
+                    <div class="status">
+                        <span>рейтинг</span>
+                    </div>
+                    <div class="wrap">
+                        <div class="description">
+                            <p>
+                                Заговоренная связь. Все, что известно о 5G и его влиянии на здоровье
+                            </p>
+                        </div>
+                        <div class="time">
+                            <p>15:44</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>политика</span>
+                        <img src="./images/img-22.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Кабмин назначил главой МОН Сергея Шкарлета в обход Рады
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>Технологии и наука</span>
+                        <img src="./images/img-23.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Агент изменений. Денис Малюська — о частных СИЗО, продаже тюрем и будущем люстрации
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+
+                <div class="card-news-back three">
+                    <div class="status">
+                        <span>Политика</span>
+                    </div>
+                    <div class="wrap">
+                        <div class="description">
+
+                            <p>
+                                Выход в люди. Как Шарий диктует информационную повестку дня в Украине
+                            </p>
+                        </div>
+                        <div class="time">
+                            <p>15:44</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-news-sm">
+                <div class="block-desc">
+                    <h1>
+                        Потоп на западной Украине
+                    </h1>
+                    <p>смотреть все материалы</p>
+                </div>
+                <div class="wrap-sc">
+                    <div class="block-scroll">
+                        <hr>
+                        <div class="b-ck">
+                            <p>
+                                Появилось видео затопленного Галича с воздуха
+                            </p>
+                            <p class="time-b-ck">
+                                14:26
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="b-ck">
+                            <p>
+                                Ущерб от наводнения на Закарпатье оценили в 125 млн гривен
+                            </p>
+                            <p class="time-b-ck">
+                                17:10
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="b-ck">
+                            <p>
+                                Ущерб от наводнения на Закарпатье оценили в 125 млн гривен
+                            </p>
+                            <p class="time-b-ck">
+                                19:43
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="b-ck">
+                            <p>
+                                Появилось видео затопленного Галича с воздуха
+                            </p>
+                            <p class="time-b-ck">
+                                14:26
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="b-ck">
+                            <p>
+                                Появилось видео затопленного Галича с воздуха
+                            </p>
+                            <p class="time-b-ck">
+                                14:26
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-card-news-3">
+                <div class="card-news-back four">
+                    <div class="wrap">
+                        <div class="description-four">
+                            <h2>Как Юлия Тимошенко меня в Египет отправила</h2>
+                            <p class="desc">В середине нулевых Киев переживал немыслимый ипотечный бум. Банки выдавали
+                                кредиты на десять и двадцать лет. </p>
+
+                        </div>
+                        <div class="block-info">
+                            <div class="wrap-info">
+                                <p class="name">Алексей Газубей</p>
+                                <p class="pozition">Главний редактор focus.ua</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>Технологии и наука</span>
+                        <img src="./images/img-tiktok.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Счастье за 16 секунд. В чем секрет популярности TikTok и как соцсеть влияет на психику
+                            подростков
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news black">
+                    <p class="title">мнение</p>
+                    <div class="img-vector">
+                        <img src="./images/Vector.png" alt="">
+                        <img src="./images/Vector.png" alt="">
+                    </div>
+                    <p class="description">
+                        “Too much против
+                        me too. Почему сексистские скандалы
+                        в Украине ничем не заканчиваются”
+                    </p>
+                    <div class="people">
+                        <img src="./images/people-img.png" alt="">
+                        <p>Мария Бабенко</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="block-card-news-3">
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>Технологии и наука</span>
+                        <img src="./images/img-41.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Новая нефть. Как ученые ищут редкие элементы на дне океана, в космосе и мусоре
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card-top">
+                        <span>Технологии и наука</span>
+                    </div>
+                    <div class="description">
+                        <h2>Все в масках и проверка температуры: в Украине стартовала основная сессия ВНО-2020</h2>
+                        <p class="os-desc">
+                            Первый тест – по математике. Для его прохождения зарегистрировались 186 072 человека.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news five">
+                    <img src="./images/img-43.png" alt="">
+                </div>
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>Культура</span>
+                        <img src="./images/img-44.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Обзор Юрия Володарского: 5 книг для тех, кто предпочитает "короткий метр" в литературе
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="advertising">
+                <div class="wrap">
+                    <div class="img-block">
+                        <img src="./images/image 9.png" alt="">
+                        <img src="./images/image 10.png" alt="">
+                        <img src="./images/image 13.png" alt="">
+                        <img src="./images/image 12.png" alt="">
+                        <img src="./images/image 16.png" alt="">
+                    </div>
+                    <div class="info-block">
+                        <p class="title">
+                            Подпишись с другом!
+                        </p>
+                        <p class="bottom">
+                            -10% каждому
+                        </p>
+                    </div>
+                    <div class="block-btn">
+                        <p>Подписаться</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="slider-1">
+            <div class="wrap">
+                <h1>Рейтинги</h1>
+            </div>
+            <div class="variable-width">
+                <div>
+                    <div>
+                        <p>Рейтинг</p>
+                        <img src="./images/slide-11.png" alt="">
+                        <h2>Бунт кнопок. 30 лучших работодателей Украины — рейтинг Фокуса</h2>
+                    </div>
+                </div>
+                <div>
+                    <div class="black">
+                        <p>Рейтинг</p>
+                        <h1>100</h1>
+                        <h2>Самые богатые люди Украины. Полный список</h2>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Рейтинг</p>
+                        <img src="./images/slide-11.png" alt="">
+                        <h2>Бунт кнопок. 30 лучших работодателей Украины — рейтинг Фокуса</h2>
+                    </div>
+                </div>
+                <div>
+                    <div class="black img">
+                        <p>Рейтинг</p>
+                        <h1>100</h1>
+
+                        <h2>Рейтинг 2019 <br>Самые влиятельные украинцы</h2>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-news-5">
+            <h1>Украина</h1>
+            <div class="block-card-news-3">
+
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-51.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Проверка доверия: владелец «Три Н» Максим Криппа о махинациях в благотворительности
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-52.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Выход из карантина: Кабмин разрешил открыть кинотеатры со 2 июля
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news-back six">
+                    <p>Фото дня</p>
+                    <h2>Бизнес и немного удовольствия: Grand Hotel Lviv Luxury & SPA</h2>
+                </div>
+
+            </div>
+            <div class="block-card-news-3">
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-61.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Пора домой. Истории мигрантов, которые вернулись в Украину из ОАЭ, Китая и Польши
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news black">
+                    <p class="title">мнение</p>
+                    <div class="img-vector">
+                        <img src="./images/Vector.png" alt="">
+                        <img src="./images/Vector.png" alt="">
+                    </div>
+                    <p class="description">
+                        “Государство или смерть. Какой кризис станет для Украины последним”
+                    </p>
+                    <div class="people">
+                        <img src="./images/img-62.png" alt="">
+                        <p>Михаил Багинский</p>
+                    </div>
+                </div>
+
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-63.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Бетонная пята. Как застройщики превращают украинские города в ад
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-64.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Смерть марафонца. Можно ли было спасти Екатерину Катющеву
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-1">
+            <div class="wrap">
+                <h1>СЕЙЧАС ПОПУЛЯРНО</h1>
+                <div class="variable-width-2">
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="img-sl-21">
+                            <span>протесты в США</span>
+                            <h2>
+                                Жертвы собственной пропаганды. Как либеральные могут проиграть холодную войну
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="block-news-5">
+            <h1>красивая страна</h1>
+
+            <div class="block-card-news-3">
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-71.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Наказание карантином. Чем грозит Украине вторая волна борьбы с коронавирусом
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-72.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Небоскребы советских времен. Три маршрута к памятникам советского модернизма в Киеве
+
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>12 июня 2020 о 03:11</p>
+                    </div>
+                </div>
+                <div class="card-news eigth">
+                    <span>рейтинг</span>
+                    <div class="wrap">
+                        <h2>100</h2>
+                        <p>Из песни слов не выкинешь. Рейтинг Фокуса:
+                            самые успешные звезды шоу-бизнеса</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card">
+                        <span>УКраина</span>
+                        <img src="./images/img-74.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Как закалилась сталь. Музей Островского в Шепетовке — памятник архитектуры, а не идеологии
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>12 июня 2020 о 03:11</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="block-news-5">
+
+
+            <div class="block-card-news-3">
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>спорт</span>
+                        <img src="./images/img-81.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Финал Кубка Украины по футболу перенесут из Львова в Харьков, – СМИ
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+
+                <div class="card-news">
+                    <div class="img-card-no">
+                        <span>Коронавирус в Украине</span>
+                    </div>
+                    <div class="description">
+                        <h2>
+                            Это винтажная атмосфера. MONATIK — о том, что такое карантин с оптимистической точки зрения
+                        </h2>
+                        <p>
+                            Коронавирус перевел всех в осадное положение. Пока концертные залы пусты, выступления
+                            проходят в режиме онлайн или не проходят вообще.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>14 июня 2020 о 16:51</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>Культура</span>
+                        <img src="./images/img-82.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Обзор Юрия Володарского: 5 книг для тех, кто предпочитает "короткий метр" в литературе
+
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>12 июня 2020 о 03:11</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <img src="./images/img-83.png" alt="">
+                </div>
+
+            </div>
+            <div class="block-card-news-3">
+                <div class="card-news">
+                    <div class="img-card-sm">
+                        <span>авто</span>
+                        <img src="./images/img-91.png" alt="">
+                    </div>
+                    <div class="description">
+                        <p>
+                            Вдохновленные ностальгией. 3 лимитированные серии автомобилей, посвященные славному прошлому
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>15:44</p>
+                    </div>
+                </div>
+                <div class="card-news">
+                    <img src="./images/img-92.png" alt="">
+                </div>
+
+                <div class="card-news ten">
+                    <span>Длинный фокус</span>
+                    <h2>КОГДА ТЫ ДОМА: как «умный дом» LG приходит на выручку во времена турбулентности</h2>
+                </div>
+
+                <div class="card-news">
+                    <div class="img-card-no">
+                        <span>Архивариус</span>
+                    </div>
+                    <div class="description">
+                        <h2>
+                            Мосты всей жизни. В жизни Евгения Патона не было случайностей
+                        </h2>
+                        <p>
+                            Его называли человеком из будущего, гениальные идеи которого по сей день используются при
+                            изготовлении сверхпрочных сплавов для мостов, железных дорог и даже космических станций.
+                        </p>
+                    </div>
+                    <div class="time">
+                        <p>14 июня 2020 о 16:51</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="footer">
+            <div class="wrap-footer">
+                <footer>
+                    <div class="footer-logo">
+                        <img src="./images/logo.png" alt="">
+                    </div>
+                    <div class="footer-menu">
+                        <div class="block">
+                            <div class="b-1f">
+                                <span><a href="#">ПОЛИТИКА</a></span>
+                                <span><a href="#">УКРАИНА</a></span>
+                                <span><a href="#">ЭКОНОМИКА</a></span>
+                                <span><a href="#">культура</a></span>
+                            </div>
+                            <div class="b-1f">
+                                <span><a href="#">Мнение</a></span>
+                                <span><a href="#">рейтинги</a></span>
+                                <span><a href="#">Длинный фокус</a></span>
+                                <span><a href="#">мир</a></span>
+                            </div>
+                        </div>
+                        <div class="block-2">
+                            <div class="img-f-block">
+                                <img src="./images/img-f.png" alt="">
+                                <img src="./images/img-f2.png" alt="">
+                                <img src="./images/img-f3.png" alt="">
+                            </div>
+                            <div class="f-btn">
+                                <p>Гарантировано <br> получите скидку -10%</p>
+                                <p id="btn-foot">Подписаться</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="footer-menu">
+                        <div class="block-3">
+                            <p>Все права на материалы, опубликованные на данном ресурсе, принадлежат ООО "ФОКУС МЕДИА".
+                                Какое-либо использование материалов без письменного разрешения ООО "ФОКУС МЕДИА" -
+                                запрещено. При использовании материалов с данного ресурса гиперссылка focus.ua
+                                обязательна.
+
+                            <p>
+                                Данный ресурс — для пользователей возрастом от 18 лет и старше.
+                            </p>
+                            </p>
+                        </div>
+                        <div class="block-3">
+                            <p>
+                                Перепечатка, копирование или воспроизведение информации, содержащей ссылку на агентство
+                                ИнА "Українські Новини", в каком-либо виде строго запрещены.
+
+                            <p>Все материалы, которые размещены на этом сайте со ссылкой на агентство
+                                "Интерфакс-Украина", не подлежат дальнейшему воспроизведению и/или распространению в
+                                любой форме, кроме как с письменного разрешения агентства.</p>
+
+                            <p>Материалы с плашками "Р", "Новости партнеров", "Новости компаний", "Новости партий",
+                                "Инновации", "Позиция", "Спецпроект при поддержке" публикуются на коммерческой основе.
+                            </p>
+                            </p>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="footer-menu">
+                        <div class="block-3">
+                            <h3>© 2020 Фокус. Все права защищены.</h3>
+                        </div>
+                        <div class="block-3">
+                            <h3>Політика конфіденційності</h3>
+                        </div>
+
+                    </div>
+                </footer>
+            </div>
+        </section>
+    </div>
+
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="./slick/slick.js"></script>
+    <script src="./slick/slick.min.js"></script>
+    <script>
+        $('.variable-width').slick({
+
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            centerMode: true,
+            variableWidth: true
+        });
+        // $('.variable-width-2').slick({
+
+        //     infinite: true,
+        //     speed: 300,
+        //     slidesToShow: 1,
+        //     centerMode: true,
+        //     variableWidth: true
+        // });
+        $('.variable-width-2').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+
+            ]
+        });
+    </script>
+</body>
+
+</html>
